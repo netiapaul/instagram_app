@@ -1,0 +1,15 @@
+.container {
+  height: 100vh;
+}
+
+.form-card {
+  max-width: 900px;
+  margin: auto auto;
+}
+
+.form-card .img-fluid {
+  background-image: url("../../assets/images/registration2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+/*# sourceMappingURL=register.css.map */
