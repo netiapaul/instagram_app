@@ -4,6 +4,7 @@ import React from "react";
 import "./register.css";
 import AppStore from "../../assets/images/apple.png";
 import PlayStore from "../../assets/images/google.png";
+import Logo from "../../assets/images/facebook.svg";
 import { useFormik } from "formik";
 
 const validate = (values) => {
@@ -64,7 +65,13 @@ const Register = () => {
                   type="button"
                   className="btn btn-primary text-white fs-6 fb-login"
                 >
-                  Login in with Facebook
+                  <img
+                    src={Logo}
+                    className="img-fluid facebook-logo"
+                    width="10"
+                    alt="play Store"
+                  />
+                  <span>Log in with Facebook</span>
                 </button>
               </div>
               <div className="d-flex justify-content-evenly text-muted">
@@ -144,8 +151,8 @@ const Register = () => {
                 </div>
                 <div className="text-center mb-3 text-muted policy">
                   <p>
-                    By signing up, you agree to our Terms , Data
-                    <br /> Policy and Cookies Policy .
+                    By signing up, you agree to our Terms , Data Policy and
+                    Cookies Policy .
                   </p>
                 </div>
               </form>
@@ -164,14 +171,14 @@ const Register = () => {
               <div className="col-sm-2 mb-2 d-flex justify-content-center">
                 <img
                   src={AppStore}
-                  className="img-fluid px-0"
+                  className="img-fluid px-0 store-logo"
                   alt="app Store"
                 />
               </div>
               <div className="col-sm-2 mb-2 d-flex justify-content-center">
                 <img
                   src={PlayStore}
-                  className="img-fluid px-0"
+                  className="img-fluid px-0 store-logo"
                   alt="play Store"
                 />
               </div>
