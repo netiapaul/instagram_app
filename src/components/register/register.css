@@ -1,11 +1,51 @@
-.container {
-  height: 100vh;
-  min-width: 100%;
-  background-color: red;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
+* {
+  font-family: 'Poppins', sans-serif;
 }
 
-.form-card {
-  max-width: 500px;
-  margin: auto;
+@media only screen and (min-width: 768px) {
+  .card {
+    width: 20rem;
+    margin: auto;
+  }
+}
+
+.container {
+  min-width: 100%;
+}
+
+.sign-up {
+  font-size: 14px;
+}
+
+.about p {
+  margin: 0 !important;
+  text-align: justify;
+}
+
+h2 {
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  line-height: 20px !important;
+  color: #8e8e8e !important;
+}
+
+.fb-login {
+  padding: 5px 9px !important;
+  font-weight: 600;
+}
+
+.policy,
+.col-sm-1 p {
+  font-size: 12px;
+}
+
+.login-link {
+  text-decoration: none !important;
+}
+
+.img-fluid {
+  height: 3rem;
+  width: 10rem;
 }
 /*# sourceMappingURL=register.css.map */
