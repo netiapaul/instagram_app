@@ -1,0 +1,35 @@
+{
+  "posts": [
+    {
+      "email": "lionel@gmail.com",
+      "fullname": "paul Netia",
+      "username": "0714028051",
+      "password": "wertyu",
+      "id": 1
+    },
+    {
+      "email": "lionel@gmail.com",
+      "fullname": "paul Netia",
+      "username": "0714028051",
+      "password": "wertyu",
+      "id": 2
+    },
+    {
+      "email": "lionel@gmail.com",
+      "fullname": "paul Netia",
+      "username": "0714028051",
+      "password": "werrrwer",
+      "id": 3
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

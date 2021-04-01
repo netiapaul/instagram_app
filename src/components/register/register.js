@@ -1,10 +1,9 @@
-import React from "react";
-// import Illustration from "../../assets/images/registration2.jpg";
-// import "../../assets/libs/bootstrap-5.0.0/css/bootstrap.min.css";
+import React, { useState } from "react";
 import "./register.css";
 import AppStore from "../../assets/images/apple.png";
 import PlayStore from "../../assets/images/google.png";
 import Logo from "../../assets/images/facebook.svg";
+import Brand from "../../assets/images/instagram.png";
 import { useFormik } from "formik";
 
 const validate = (values) => {
@@ -36,6 +35,9 @@ const validate = (values) => {
 };
 
 const Register = () => {
+  let [res, setResponse] = useState("");
+  let [status, setStatus] = useState("");
+
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -45,15 +47,65 @@ const Register = () => {
     },
     validate,
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+      // alert(JSON.stringify(values, null, 2));
+      fetch("http://localhost:3004/posts", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      })
+        .then((response) => {
+          if (!response.ok) {
+            if (response.status >= 400) {
+              res = setResponse(`Registration Failed`);
+              status = setStatus(response.status);
+            }
+          } else {
+            res = setResponse(`User Created Succesfully`);
+            status = setStatus(response.status);
+            return response.json();
+          }
+        })
+        .then((data) => console.log(data))
+        .catch((err) => console.log(err));
+      formik.resetForm();
     },
   });
+
   return (
     <div className="container">
       <div className="row">
         <div className="col-sm">
+          {/* Error Message */}
+          {res ? (
+            <div
+              className={
+                status > 399
+                  ? "alert alert-danger alert-dismissible fade show mt-1"
+                  : "alert alert-success alert-dismissible fade show mt-1"
+              }
+              role="alert"
+            >
+              {res}
+              <button
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="alert"
+                aria-label="Close"
+              ></button>
+            </div>
+          ) : (
+            ""
+          )}
+          {/* Error Message */}
           <div className="card form-card mt-5">
-            <div className="card-body">
+            <div className="d-flex justify-content-center">
+              <img src={Brand} className="img-top" alt="Top Brand" />
+            </div>
+
+            <div className="card-body mt-n2">
               <div className="text-center mb-3 fw-bolder text-muted">
                 <h2>
                   Signup to see photos and videos
@@ -215,29 +267,6 @@ const Register = () => {
               </div>
               <div className="col-sm-1">
                 <p>Locations</p>
-              </div>
-            </div>
-            <div className="row row-cols-4 row-cols-md-10 d-flex justify-content-center p-2 about">
-              <div className="col-sm-1">
-                <p>Beauty</p>
-              </div>
-              <div className="col-sm-1">
-                <p>Dance & Performance</p>
-              </div>
-              <div className="col-sm-1">
-                <p>Fitness</p>
-              </div>
-              <div className="col-sm-1">
-                <p>Food & Drink</p>
-              </div>
-              <div className="col-sm-1">
-                <p>Home & Garden</p>
-              </div>
-              <div className="col-sm-1">
-                <p>Music</p>
-              </div>
-              <div className="col-sm-1">
-                <p>Visual Arts</p>
               </div>
             </div>
           </div>
