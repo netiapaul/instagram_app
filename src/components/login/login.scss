@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+// Desktop Sizes
+@media only screen and (min-width: 768px) {
+    .card {
+        width: 20rem;
+        margin: auto;
+    }
+}
+
+.container {
+    // max-height: 100%;
+    min-width: 100%;
+    // background-color: red;
+}
+
+.sign-up {
+    font-size: 14px;
+}
+
+.about p {
+    margin: 0 !important;
+    text-align: justify;
+}
+
+h2 {
+    font-size: 15px !important;
+    font-weight: 500 !important;
+    line-height: 20px !important;
+    color: #8e8e8e !important;
+}
+
+.fb-login {
+    padding: 5px 9px !important;
+    font-weight: 600;
+}
+
+.img-top {
+    width: 15rem;
+}
+
+.facebook-logo {
+    width: 20px;
+    margin: 0 10px;
+}
+
+.policy,
+.col-sm-1 p {
+    font-size: 12px;
+}
+
+
+
+.login-link {
+    text-decoration: none !important;
+}
+
+.store-logo {
+    height: 3rem;
+    width: 10rem;
+}

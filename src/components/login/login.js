@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./register.css";
+import "./login.css";
 import AppStore from "../../assets/images/apple.png";
 import PlayStore from "../../assets/images/google.png";
 import Logo from "../../assets/images/facebook.svg";
@@ -14,34 +14,22 @@ const validate = (values) => {
   } else if (values.password.length > 15) {
     errors.password = "Must be 15 characters or less";
   }
-  if (!values.fullname) {
-    errors.fullname = "Required";
-  } else if (values.fullname.length > 20) {
-    errors.fullname = "Must be 20 characters or less";
-  }
+
   if (!values.username) {
     errors.username = "Required";
   } else if (values.username.length > 20) {
     errors.username = "Must be 20 characters or less";
   }
 
-  if (!values.email) {
-    errors.email = "Required";
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-    errors.email = "Invalid email address";
-  }
-
   return errors;
 };
 
-const Register = () => {
+const Login = () => {
   let [res, setResponse] = useState("");
   let [status, setStatus] = useState("");
 
   const formik = useFormik({
     initialValues: {
-      email: "",
-      fullname: "",
       username: "",
       password: "",
     },
@@ -134,38 +122,6 @@ const Register = () => {
               <form onSubmit={formik.handleSubmit}>
                 <div className="mb-3">
                   <input
-                    id="email"
-                    className="form-control rounded-0"
-                    name="email"
-                    type="email"
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    value={formik.values.email}
-                    placeholder="Email"
-                  />
-
-                  {formik.touched.email && formik.errors.email ? (
-                    <div className="text-danger">{formik.errors.email}</div>
-                  ) : null}
-                </div>
-                <div className="mb-3">
-                  <input
-                    id="fullname"
-                    className="form-control rounded-0"
-                    name="fullname"
-                    type="text"
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    value={formik.values.fullname}
-                    placeholder="Full Name"
-                  />
-
-                  {formik.touched.fullname && formik.errors.fullname ? (
-                    <div className="text-danger">{formik.errors.fullname}</div>
-                  ) : null}
-                </div>
-                <div className="mb-3">
-                  <input
                     id="username"
                     className="form-control rounded-0"
                     name="username"
@@ -198,14 +154,13 @@ const Register = () => {
                 </div>
                 <div className="d-grid mb-3">
                   <button type="submit" className="btn btn-primary">
-                    Sign Up
+                    Log In
                   </button>
                 </div>
                 <div className="text-center mb-3 text-muted policy">
-                  <p>
-                    By signing up, you agree to our Terms , Data Policy and
-                    Cookies Policy .
-                  </p>
+                  <a href="" className="text-decoration-none">
+                    Forgot your password?
+                  </a>
                 </div>
               </form>
             </div>
@@ -213,7 +168,7 @@ const Register = () => {
           <div className="card my-2 text-center">
             <div className="card-body">
               <p className="my-3 sign-up">
-                Don't have an account? <a href="">Log In</a>
+                Don't have an account? <a href="">Sign Up</a>
               </p>
             </div>
           </div>
@@ -276,4 +231,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Login;
