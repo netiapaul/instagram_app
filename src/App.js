@@ -1,5 +1,5 @@
 import React from "react";
-import Register from "./components/login/login";
+import Register from "./components/register/register";
 import "./assets/libs/bootstrap-5.0.0/css/bootstrap.min.css";
 
 function App() {
